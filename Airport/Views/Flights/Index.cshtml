@@ -1,0 +1,57 @@
+﻿@using Airport.Models;
+@{
+    ViewBag.Title = "Flights";
+}
+
+<div class="container">
+    <h1>City: @Model.City</h1>
+    <h2>Arrivals</h2>
+    <table class="table table-responsive table-hover">
+        <thead>
+            <tr>
+                <td>Data</td>
+                <td>Time</td>
+                <td>To</td>
+                <td>Airline</td>
+                <td>Status</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Flight f in Model.Arrivals)
+            {
+                <tr>
+                    <td>@f.Date.ToShortDateString()</td>
+                    <td>@f.Date.ToShortTimeString()</td>
+                    <td>@f.ArrivalCity</td>
+                    <td>@f.Airline</td>
+                    <td>@f.Status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <h2>Departures</h2>
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <td>Data</td>
+                <td>Time</td>
+                <td>To</td>
+                <td>Airline</td>
+                <td>Status</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Flight f in Model.Departures)
+            {
+                <tr>
+                    <td>@f.Date.ToShortDateString()</td>
+                    <td>@f.Date.ToShortTimeString()</td>
+                    <td>@f.ArrivalCity</td>
+                    <td>@f.Airline</td>
+                    <td>@f.Status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
